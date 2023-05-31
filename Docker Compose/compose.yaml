@@ -10,6 +10,7 @@ services: # https://docs.docker.com/compose/compose-file/05-services/
     healthcheck: # https://docs.docker.com/compose/compose-file/05-services/#healthcheck
       test: [ "CMD", "dotnet", "/app/BotConnectorToTeams.dll", "--healthcheck", "http://localhost/healthcheck" ]
       interval: 1m # Takes 1 minute for the first check, and then every minute
+      timeout: 1m
     environment:
       - AzureBot:MicrosoftAppType=${AzureBot_MicrosoftAppType}
       - AzureBot:MicrosoftAppId=${AzureBot_MicrosoftAppId}

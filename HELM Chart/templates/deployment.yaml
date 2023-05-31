@@ -49,10 +49,15 @@ spec:
             httpGet:
               path: /livenesscheck
               port: http
+            periodSeconds: 10
+            timeoutSeconds: 1
           readinessProbe:
             httpGet:
               path: /healthcheck
               port: http
+            initialDelaySeconds: 3
+            periodSeconds: 60
+            timeoutSeconds: 60
           env:
             - name: AzureBot__MicrosoftAppType
               valueFrom:

@@ -1,0 +1,17 @@
+# Make sure to fill out 'values.yaml' to properly set up the app.
+
+# https://helm.sh/docs/topics/charts/#the-chartyaml-file
+apiVersion: v2
+name: bot-connector-to-teams
+description: BotConnector2Teams by GentlemenGroup, powered by freedom manufaktur.
+
+# https://helm.sh/docs/topics/charts/#chart-types
+type: application
+
+# Version of this Chart - https://helm.sh/docs/topics/charts/#charts-and-versioning
+version: 1.5.0
+
+# The version of the app that this contains (optional). - https://helm.sh/docs/topics/charts/#the-appversion-field
+appVersion: "1.5.0" # or latest
+
+icon: https://static.freedom-manufaktur.com/bot-connector-to-teams-helm.svg

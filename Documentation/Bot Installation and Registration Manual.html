@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>1&period; Bot Service Installation</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h2 id="botconnector2teams---bot-installation-and-registration-manual">BotConnector2Teams - Bot Installation and Registration Manual</h2>
+<p>Version: <code>1.5.0</code> - <code>2023-05-31</code><br>
+Author: <a href="mailto:martin@freedom-manufaktur.com">martin@freedom-manufaktur.com</a></p>
+<h2 id="table-of-contents">Table of contents</h2>
+<!--TOC-->
+<ul>
+<li><a href="#1-bot-service-installation">1. Bot Service Installation</a>
+<ul>
+<li><a href="#installation-as-windows-service">Installation as Windows Service</a></li>
+<li><a href="#installation-as-docker-container-via-docker-compose">Installation as Docker Container via Docker Compose</a></li>
+<li><a href="#installation-as-kubernetes-deployment-via-helm-chart">Installation as Kubernetes Deployment via HELM Chart</a></li>
+</ul>
+</li>
+<li><a href="#2-install-the-teams-developer-portal">2. Install the Teams Developer Portal</a></li>
+<li><a href="#3-register-a-teams-bot">3. Register a Teams bot</a></li>
+<li><a href="#4-configure-the-usu-knowledge-bot">4. Configure the USU Knowledge Bot</a></li>
+<li><a href="#5-configure-the-microservice">5. Configure the microservice</a></li>
+<li><a href="#6-create-a-personalized-teams-app-using-your-bot">6. Create a personalized Teams App using your bot</a></li>
+<li><a href="#7-publish-your-teams-app-to-your-organizationusers">7. Publish your Teams App to your Organization/Users</a></li>
+<li><a href="#8-use-the-teams-app">8. Use the Teams App</a></li>
+<li><a href="#need-support">Need support?</a></li>
+</ul>
+<!--/TOC-->
+<h1 id="1-bot-service-installation">1. Bot Service Installation</h1>
+<p>There are different kinds of installation. You may choose the one best suiting your needs.</p>
+<ul>
+<li>Windows Service <br>
+✔ lightweight <br>
+✔ easy to install, update and configure <br>
+⚠ Windows only <br>
+ℹ .NET required (installed automatically)</li>
+<li>Docker Container via Docker Compose <br>
+✔ containerized <br>
+✔ cross platform <br>
+⚠ Docker with <a href="https://docs.docker.com/compose/">Docker Compose v2</a> required</li>
+<li>Kubernetes Deployment via <a href="https://helm.sh/">HELM Chart</a> <br>
+✔ containerized <br>
+✔ scalable <br>
+✔ cross platform <br>
+⚠ Kubernetes installation required <br>
+⚠ <a href="https://helm.sh/docs/intro/install/">HELM</a> installation required <br>
+⚠ Experience with Kubernetes and HELM Charts required</li>
+</ul>
+<h2 id="installation-as-windows-service">Installation as Windows Service</h2>
+<p><strong>Installation</strong></p>
+<ol>
+<li>
+<p>Download Installation from <a href="https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBgl6MOdQY7l91qrBF2DNt1Q">BotConnector2Teams Download</a></p>
+</li>
+<li>
+<p><em>(Optional, when offline</em>) Download and install the most recent <a href="https://dotnet.microsoft.com/en-us/download/dotnet/7.0">.NET 7.0 Runtimes</a></p>
+<ol>
+<li><a href="http://ASP.NET">ASP.NET</a> Core Runtime x64 Installer</li>
+<li>.NET Runtime x64 Installer</li>
+</ol>
+</li>
+<li>
+<p>Install <code>BotConnector2Teams Setup 1.5.0</code></p>
+<blockquote>
+<p>Note: This will automatically install .NET 7.0 if necessary</p>
+</blockquote>
+</li>
+<li>
+<p>(Optional, verify running) Open a browser and navigate to <br>
+<a href="http://localhost:8100">http://localhost:8100</a> <br>
+You should be greeted with the message<br>
+<code>Welcome to the BotConnector2Teams Microservice</code></p>
+</li>
+<li>
+<p>Allow inbound traffic to the service.</p>
+<blockquote>
+<p>The default port used is <code>8100</code>. You may change the port number at any time.</p>
+</blockquote>
+<ul>
+<li>Use a Reverse Proxy, like IIS <a href="https://www.iis.net/downloads/microsoft/application-request-routing">Application Request Routing</a> to redirect traffic to port <code>8100</code>.
+<blockquote>
+<p>This is the <strong>recommended</strong> option, as you can perform TLS/SSL termination before hitting the service and running the service in combination with other apps.</p>
+</blockquote>
+</li>
+</ul>
+<p><em>OR</em></p>
+<ul>
+<li>Configure your Windows Firewall to allow inbound traffic to port <code>8100</code>
+<blockquote>
+<p>Note: You must bind a certificate to this port and use TLS/SSL (see <em>Configuration</em>).</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>As a result of the previous steps you should have a publically accessible and TLS secured endpoint like <strong><a href="https://bot.MyCompany.com">https://bot.MyCompany.com</a></strong>. <br>
+We will use this address in the next steps.</p>
+</li>
+</ol>
+<p><strong>Upgrade an existing Installation</strong></p>
+<ol>
+<li>(Optional, when Offline) Download and install the most recent <a href="https://dotnet.microsoft.com/en-us/download/dotnet/7.0">.NET 7.0 Runtimes</a>
+<ol>
+<li><a href="http://ASP.NET">ASP.NET</a> Core Runtime x64 Installer</li>
+<li>.NET Runtime x64 Installer</li>
+</ol>
+</li>
+<li>Install <code>BotConnector2Teams Setup vNext.exe</code> <br>
+This will upgrade your existing installation.</li>
+</ol>
+<p><strong>Configuration</strong></p>
+<p>If port <code>8100</code> (default) is already in use or you want to set any other option, then navigate to the directory <br>
+<code>%ProgramData%\freedom manufaktur\BotConnector2Teams</code> <br>
+This directory contains the configuration for the app <code>appsettings.json</code> as well as some other app files.
+Editing <code>appsettings.json</code> will show something like</p>
+<pre><code>{
+  &quot;$Help.Urls&quot;: &quot;Enter the URLs you want the App to be available at. For example https://localhost:8101;http://localhost:8100&quot;,
+  &quot;Urls&quot;: &quot;https://localhost:8443&quot;,
+  &quot;AzureBot&quot;: {
+    &quot;MicrosoftAppType&quot;: &quot;MultiTenant&quot;,
+    &quot;MicrosoftAppId&quot;: &quot;&quot;,
+    &quot;MicrosoftAppPassword&quot;: &quot;&quot;,
+    &quot;MicrosoftAppTenantId&quot;: &quot;&quot;
+  },
+  &quot;UsuBot&quot;: {
+    &quot;$Help.BaseUrl&quot;: &quot;For example: https://knowledge.gentlemengroup.de&quot;,
+    &quot;BaseUrl&quot;: &quot;&quot;,
+    &quot;ApiKey&quot;: &quot;&quot;,
+    &quot;ConnectorType&quot;: &quot;default:Connector2Teams&quot;
+  },
+  &quot;UsuKnowledgeManager&quot;: {
+    &quot;$Help.BaseUrl&quot;: &quot;For example: https://knowledge.gentlemengroup.de&quot;,
+    &quot;BaseUrl&quot;: &quot;&quot;,
+    &quot;$Help.DocumentUrl&quot;: &quot;Omit, if equal to: [BaseUrl]/knowledgecenter/docShow.do;realm=defaulthost?mandatorKey=MANDATOR_USU&amp;callFromKminer=true&amp;entity.GUID={{DocumentGuid}}&quot;,
+    &quot;DocumentUrl&quot;: null
+  },
+  &quot;License&quot;: {
+    &quot;Key&quot;: &quot;eyJMaWNlbnN[...]&quot;    
+  },
+  &quot;Api&quot;: {
+    &quot;$Help.EnableDetailedErrorMessages&quot;: &quot;Enable to include the full stack trace when an error occurs while calling the API.&quot;,
+    &quot;EnableDetailedErrorMessages&quot;: true
+  }
+}
+</code></pre>
+<p>As seen in the example, the URL has been re-configured to use <a href="https://localhost:8443">https://localhost:8443</a> as address and detailed error messages have been enabled. <br>
+<em>After changing <code>appsettings.json</code> you must restart the <code>BotConnector2Teams</code> Service.</em></p>
+<p><strong>Monitoring / Debugging</strong></p>
+<p>The installation creates a new Windows Service that should be running for the service to be available</p>
+<p><img src="Images/Windows%20Service.png" alt="Alt text"></p>
+<p>The installation also creates a new Windows Event Log source <code>BotConnector2Teams</code>. Please start the <em>Event Viewer</em> or any other Event Log monitoring tool to view the application logs.</p>
+<p><img src="Images/Windows%20Service%20Event%20Log.png" alt="Alt text"></p>
+<hr>
+<h2 id="installation-as-docker-container-via-docker-compose">Installation as Docker Container via Docker Compose</h2>
+<p><strong>Installation and Configuration</strong></p>
+<ol>
+<li>
+<p>Download the <strong>bot-connector-to-teams</strong> Docker image from <a href="https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBgl6MOdQY7l91qrBF2DNt1Q">BotConnector2Teams Download</a> and register it with your image repository.</p>
+</li>
+<li>
+<p>Download the Docker Compose YAML files from <a href="https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Docker%20Compose">BotConnector2Teams Docker Compose Download</a>.</p>
+</li>
+<li>
+<p>Adjust the <code>compose.env</code> with the required settings.</p>
+<blockquote>
+<p>Note: Read the following chapters if you do not have all the required information.</p>
+</blockquote>
+</li>
+<li>
+<p>Use the command <code>docker compose --env-file .\compose.env up</code> to deploy the app.</p>
+</li>
+</ol>
+<p><strong>Monitoring / Debugging</strong></p>
+<blockquote>
+<p>The Docker Compose file contains a <a href="https://docs.docker.com/compose/compose-file/05-services/#healthcheck">healthcheck</a> definition that includes basic configuration checks.</p>
+</blockquote>
+<p>Use your favorite Docker tools to check the status and logs of the app.
+For example in Docker Desktop <br>
+<img src="Images/Docker%20Compose%20Running.png" alt="Docker Compose Container Running"></p>
+<hr>
+<h2 id="installation-as-kubernetes-deployment-via-helm-chart">Installation as Kubernetes Deployment via HELM Chart</h2>
+<p><strong>Installation and Configuration</strong></p>
+<ol>
+<li>
+<p>Download the <strong>bot-connector-to-teams</strong> Docker image from <a href="https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBgl6MOdQY7l91qrBF2DNt1Q">BotConnector2Teams Download</a> and register it with your image repository.</p>
+</li>
+<li>
+<p>Download the HELM Chart files from <a href="https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/HELM%20Chart">BotConnector2Teams HELM Chart Download</a>.</p>
+</li>
+<li>
+<p>Adjust the <code>values.yaml</code> with the required settings.</p>
+<blockquote>
+<p>Note: Read the following chapters if you do not have all the required information.</p>
+</blockquote>
+</li>
+<li>
+<p>Use the command <code>helm upgrade bot-connector . --install</code> to deploy the app.</p>
+</li>
+<li>
+<p>Use the command <code>helm test bot-connector</code> to test the deployed app. <br>
+Expecting to see <code>Phase: Succeeded</code>.</p>
+</li>
+</ol>
+<p><strong>Monitoring / Debugging</strong></p>
+<blockquote>
+<p>The Kubernetes Deployment contains <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/">readiness and liveness probes</a> that include basic configuration checks.</p>
+</blockquote>
+<p>Use your favorite Docker tools to check the status and logs of the app.
+For example in Kubernetes Dashboard <br>
+<img src="Images/Kubernetes%20Running.png" alt="Docker Kubernetes Running"></p>
+<h1 id="2-install-the-teams-developer-portal">2. Install the Teams Developer Portal</h1>
+<ol>
+<li>As an administrator or normal Teams user, open <a href="https://teams.microsoft.com">Teams</a> or use the Teams Desktop App.</li>
+<li>Add the <a href="https://teams.microsoft.com/l/app/14072831-8a2a-4f76-9294-057bf0b42a68?source=app-details-dialog"><strong>Developer Portal</strong></a> app to your Teams. <br>
+<em>OR</em> <br>
+Go to <strong>Apps</strong>, search for <strong>Developer Portal</strong> and <strong>Add</strong> it. <br>
+<img src="Images/Teams%20Developer%20Portal.png" alt="Developer Portal"></li>
+</ol>
+<h1 id="3-register-a-teams-bot">3. Register a Teams bot</h1>
+<ol>
+<li>Open the <strong>Developer Portal</strong> app → <strong>Tools</strong> → <strong>Bot management</strong> and add a new bot. <br>
+<img src="Images/Teams%20Developer%20Portal%20New%20Bot.png" alt="New Bot"></li>
+<li>Give the bot a name. For example <em>USU Chatbot</em>.</li>
+<li>Under <strong>Configure</strong> → <strong>Endpoint address</strong> enter the URL of <strong>your</strong> bot and append <code>/api/messages</code> <br>
+For example <strong><code>https://bot.MyCompany.com/api/messages</code></strong> <br>
+<img src="Images/Teams%20Developer%20Portal%20Bot%20Endpoint.png" alt="Bot endpoint"></li>
+<li>Under <strong>Client secrets</strong> create a new secret and write it down. <br>
+<img src="Images/Teams%20Developer%20Portal%20Bot%20Secret.png" alt="Bot secret"></li>
+<li>Go back to the <strong>Bot management</strong> and write down the <strong>Bot ID</strong>. <br>
+<img src="Images/Teams%20Developer%20Portal%20Bot%20ID.png" alt="Bot ID"></li>
+</ol>
+<h1 id="4-configure-the-usu-knowledge-bot">4. Configure the USU Knowledge Bot</h1>
+<ol>
+<li>Open the USU Chatbot Manager App, typically at <a href="https://knowledge.MyCompany.com/kbot-manager/">https://knowledge.MyCompany.com/kbot-manager/</a></li>
+<li>Select the desired bot, typically a <em>Lead Bot</em>. <br>
+<img src="Images/USU%20Knowledge%20Bot%20Select%20Bot.png" alt="Select Bot"></li>
+<li>Navigate to <strong>Mandatory Settings</strong> → <strong>Connectors</strong> and select <strong>Create Connector</strong>.</li>
+<li>Give the name <strong>Connector2Teams</strong> with type <strong>Default</strong> and save.</li>
+<li>Enable the connector <strong>Connector2Teams</strong>. <br>
+<img src="Images/USU%20Knowledge%20Bot%20Connector.png" alt="Enabled Connector"></li>
+<li>Navigate to <strong>Advanced Settings</strong> → <strong>API Key</strong> and write down the <strong>Key</strong>. <br>
+<img src="Images/USU%20Knowledge%20Bot%20API%20Key.png" alt="API Key"></li>
+</ol>
+<h1 id="5-configure-the-microservice">5. Configure the microservice</h1>
+<p>As a result of the previous chapters you should have the following information at your disposal:</p>
+<ul>
+<li>Microsoft Teams Bot ID (e.g. <em>6ee9a76d-8c22-493f-8e88-9b69bafa3386</em>)</li>
+<li>Microsoft Teams Bot Client Secret (e.g. <em>P~i8Q~~AUaTiAGJAaW6PIZKafDZpCNOWjoAGpatY</em>)</li>
+<li>USU Knowledge Manager URL (e.g. <em><a href="https://knowledge.MyCompany.com">https://knowledge.MyCompany.com</a></em>)</li>
+<li>USU Knowledge Bot URL (probably the same as <em>USU Knowledge Manager</em>)</li>
+<li>USU Knowledge Bot API Key (e.g. <em>d2hvb3NoIE9rdG9wdXMgaXMgdGhlIGJlc3QhISE=</em>)</li>
+<li>BotConnector2Teams Microservice URL (e.g. <em><a href="https://bot.MyCompany.com">https://bot.MyCompany.com</a></em>)</li>
+<li>(Optional) BotConnector2Teams License Key (e.g. <em>eyJMaWNlbnN[...]</em>)
+<blockquote>
+<p>You may enter your license later, but you will receive an unlicensed message. Acquire a license by contacting <a href="mailto:support@gentlemengroup.de">support@gentlemengroup.de</a>.</p>
+</blockquote>
+</li>
+</ul>
+<p>Let's put all this together.</p>
+<ol>
+<li>
+<p>Base on the type of installation you used, open your <code>appsettings.json</code>, <code>compose.env</code> or <code>values.yaml</code> file.</p>
+</li>
+<li>
+<p>Enter the information from above into the corresponding properties. <em>We use the Windows service as an example.</em></p>
+<pre><code>{
+  &quot;AzureBot&quot;: {
+    &quot;MicrosoftAppType&quot;: &quot;MultiTenant&quot;,
+    &quot;MicrosoftAppId&quot;: &quot;6ee9a76d-8c22-493f-8e88-9b69bafa3386&quot;,
+    &quot;MicrosoftAppPassword&quot;: &quot;P~i8Q~~AUaTiAGJAaW6PIZKafDZpCNOWjoAGpatY&quot;,
+    &quot;MicrosoftAppTenantId&quot;: &quot;&quot;
+  },
+  &quot;UsuBot&quot;: {
+    &quot;$Help.BaseUrl&quot;: &quot;For example: https://knowledge.gentlemengroup.de&quot;,
+    &quot;BaseUrl&quot;: &quot;https://knowledge.MyCompany.com&quot;,
+    &quot;ApiKey&quot;: &quot;d2hvb3NoIE9rdG9wdXMgaXMgdGhlIGJlc3QhISE=&quot;,
+    &quot;ConnectorType&quot;: &quot;default:Connector2Teams&quot;
+  },
+  &quot;UsuKnowledgeManager&quot;: {
+    &quot;$Help.BaseUrl&quot;: &quot;For example: https://knowledge.gentlemengroup.de&quot;,
+    &quot;BaseUrl&quot;: &quot;https://knowledge.MyCompany.com&quot;,
+    &quot;$Help.DocumentUrl&quot;: &quot;Omit, if equal to: [BaseUrl]/knowledgecenter/docShow.do;realm=defaulthost?mandatorKey=MANDATOR_USU&amp;callFromKminer=true&amp;entity.GUID={{DocumentGuid}}&quot;,
+    &quot;DocumentUrl&quot;: null
+  },
+  &quot;License&quot;: {
+    &quot;Key&quot;: &quot;eyJMaWNlbnN[...]&quot;    
+  }
+}
+</code></pre>
+<blockquote>
+<p>Note: All non-relevant properties have been omitted for better readability.</p>
+</blockquote>
+</li>
+<li>
+<p>Restart the <em>BotConnector2Teams</em> Service/Container.</p>
+</li>
+<li>
+<p>(Optional) Open a browser and enter the URL of <strong>your</strong> bot and append <code>/healthcheck</code> <br>
+For example <strong><code>https://bot.MyCompany.com/healthcheck</code></strong> <br>
+This should result in a page where everything has the status <strong>Healthy</strong>.</p>
+<pre><code>{
+  &quot;status&quot;: &quot;Healthy&quot;,
+  &quot;components&quot;: [
+    {
+      &quot;name&quot;: &quot;AzureBot&quot;,
+      &quot;status&quot;: &quot;Healthy&quot;
+    },
+    {
+      &quot;name&quot;: &quot;UsuBot&quot;,
+      &quot;status&quot;: &quot;Healthy&quot;
+    },
+    {
+      &quot;name&quot;: &quot;UsuKnowledgeManager&quot;,
+      &quot;status&quot;: &quot;Healthy&quot;
+    },
+    {
+      &quot;name&quot;: &quot;License&quot;,
+      &quot;status&quot;: &quot;Healthy&quot;
+    }
+  ]
+}
+</code></pre>
+<p>If that is not the case, please go back to the previous steps and try again.</p>
+<blockquote>
+<p>You now have a working Teams Bot that can be used in <strong>any</strong> Teams App.
+Read the next chapter on how to create a Teams App.</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="6-create-a-personalized-teams-app-using-your-bot">6. Create a personalized Teams App using your bot</h1>
+<ol>
+<li>
+<p>Open the <strong>Developer Portal</strong> app → <strong>Apps</strong> and import our app template to get started as quickly as possible. <br>
+<img src="Images/Teams%20Developer%20Portal%20App%20Import%20Template.png" alt="Import Teamplate"></p>
+</li>
+<li>
+<p>Duplicate the Template and give it a nice name like <em>USU Chatbot</em>. <br>
+<img src="Images/Teams%20Developer%20Portal%20App%20Duplicate%20Template.png" alt="Duplicate Template"></p>
+</li>
+<li>
+<p>You may now delete the template and only keep the app with a valid <em>App ID</em>. <br>
+<img src="Images/Teams%20Developer%20Portal%20App%20Valid%20ID.png" alt="Valid App ID"></p>
+</li>
+<li>
+<p>Open the app to view its settings.</p>
+</li>
+<li>
+<p>(Optional) Adjust the information under <strong>Configure</strong> → <strong>Basic information</strong> to your liking.</p>
+<blockquote>
+<p>This Teams App is now <strong>your</strong> app, you can configure and extend it in any way you like.</p>
+</blockquote>
+</li>
+<li>
+<p>Open <strong>Configure</strong> → <strong>App features</strong> → <strong>Bot</strong>. <br>
+Under <strong>Identify your bot</strong> select the bot that we previously created, replacing the template Bot ID <em>00000000-0000-0000-0000-000000000000</em>. Press <strong>Save</strong>. <br>
+<img src="Images/Teams%20Developer%20Portal%20App%20Select%20Bot.png" alt="Select Bot"></p>
+</li>
+<li>
+<p>Your App is now ready!</p>
+</li>
+</ol>
+<h1 id="7-publish-your-teams-app-to-your-organizationusers">7. Publish your Teams App to your Organization/Users</h1>
+<ol>
+<li>
+<p>Press <strong>Publish</strong> on your Teams App and select <strong>Publish to your org</strong>. <br>
+<img src="Images/Teams%20Developer%20Portal%20App%20Publish.png" alt="Publish App"></p>
+</li>
+<li>
+<p>Your app should now be in <em>Submitted</em> state. <br>
+<img src="Images/Teams%20Developer%20Portal%20App%20Publish%20Submitted.png" alt="Submitted State"></p>
+</li>
+<li>
+<p>As a Teams Administrator open the <a href="https://admin.teams.microsoft.com/">Microsoft Teams Admin Center</a>.</p>
+</li>
+<li>
+<p>Navigate to <strong>Teams apps</strong> → <strong>Manage apps</strong>. <br>
+In the list of <em>all</em> apps, search for your app <strong>USU Chatbot</strong>. <br>
+And finally open your app. <br>
+<img src="Images/Teams%20Admin%20Center%20Select%20App.png" alt="Select Teams App"></p>
+</li>
+<li>
+<p>Press <strong>Publish</strong> to publish your app to your organization. <br>
+<img src="Images/Teams%20Admin%20Center%20Publish%20App.png" alt="Publish App"></p>
+<blockquote>
+<p>Note: <strong>The publish process usually takes about 1-5 minutes</strong> without any visual indication. <br>
+After successful submission, it should look like this. <br>
+<img src="Images/Teams%20Admin%20Center%20Publish%20App%20Success.png" alt="Published App"></p>
+</blockquote>
+</li>
+</ol>
+<h1 id="8-use-the-teams-app">8. Use the Teams App</h1>
+<p>As a Teams user of your organization.</p>
+<ol>
+<li>
+<p>In your <a href="https://teams.microsoft.com/_#/apps">Teams App Store</a> search for <strong>USU Chatbot</strong> and add the app. <br>
+<img src="Images/Teams%20Install%20App.png" alt="Install App"></p>
+</li>
+<li>
+<p>Start chatting. <br>
+<img src="Images/Teams%20Use%20App.png" alt="Chat with bot"></p>
+</li>
+<li>
+<p>Done!</p>
+<blockquote>
+<p>Congratulations on successfully installing, configuring, registering and using the <strong>BotConnector2Teams</strong>.</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="need-support">Need support?</h1>
+<p>If you have any questions regarding the installation and configuration of the BotConnector2Teams, contact us at</p>
+<ul>
+<li>All questions regarding the BotConnector2Teams <br>
+<a href="mailto:support@gentlemengroup.de">support@gentlemengroup.de</a> (Gentlemen Group)</li>
+<li>All questions around the <em>BotConnector2Teams Microservice</em> / <em>Teams App Registration</em> <br>
+<a href="mailto:support@freedom-manufaktur.com">support@freedom-manufaktur.com</a> (freedom manufaktur)</li>
+<li>All questions regarding the USU Knowledge Manager itself <br>
+<a href="mailto:support@usu.com">support@usu.com</a> (USU)</li>
+</ul>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

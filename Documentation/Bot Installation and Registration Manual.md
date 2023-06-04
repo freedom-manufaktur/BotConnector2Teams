@@ -1,7 +1,8 @@
 ﻿BotConnector2Teams - Bot Installation and Registration Manual
 ---
-Version: `1.5.0` - `2023-05-31`\
-Author: martin@freedom-manufaktur.com
+Version: `1.5.0` - `2023-05-31` \
+Author: martin@freedom-manufaktur.com \
+Link: [Documentation on GitHub](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Documentation/Bot%20Installation%20and%20Registration%20Manual.md)
 
 Table of contents
 ---
@@ -281,7 +282,7 @@ Let's put all this together.
 
 # 6. Create a personalized Teams App using your bot
 
-1.  Open the **Developer Portal** app → **Apps** and import our app template to get started as quickly as possible. \
+1.  Open the **Developer Portal** app → **Apps** and import our app template ([USU Chatbot Template.zip](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/)) to get started as quickly as possible. \
     ![Import Teamplate](Images/Teams%20Developer%20Portal%20App%20Import%20Template.png)
 
 1.  Duplicate the Template and give it a nice name like *USU Chatbot*. \

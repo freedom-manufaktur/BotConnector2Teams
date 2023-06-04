@@ -1,0 +1,18 @@
+﻿apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "bot-connector-to-teams.fullname" . }}
+  labels:
+    {{- include "bot-connector-to-teams.labels" . | nindent 4 }}
+data:
+  AzureBot.MicrosoftAppType: {{ .Values.config.AzureBot.MicrosoftAppType | quote }}
+  AzureBot.MicrosoftAppId: {{ .Values.config.AzureBot.MicrosoftAppId | quote }}
+  AzureBot.MicrosoftAppPassword: {{ .Values.config.AzureBot.MicrosoftAppPassword | quote }}
+  AzureBot.MicrosoftAppTenantId: {{ .Values.config.AzureBot.MicrosoftAppTenantId | quote }}
+  UsuBot.BaseUrl: {{ .Values.config.UsuBot.BaseUrl | quote }}
+  UsuBot.ApiKey: {{ .Values.config.UsuBot.ApiKey | quote }}
+  UsuBot.ConnectorType: {{ .Values.config.UsuBot.ConnectorType | quote }}
+  UsuKnowledgeManager.BaseUrl: {{ .Values.config.UsuKnowledgeManager.BaseUrl | quote }}
+  UsuKnowledgeManager.DocumentUrl: {{ .Values.config.UsuKnowledgeManager.DocumentUrl | quote }}
+  License.Key: {{ .Values.config.License.Key | quote }}
+  Api.EnableDetailedErrorMessages: {{ .Values.config.Api.EnableDetailedErrorMessages | quote }}

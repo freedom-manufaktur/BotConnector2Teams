@@ -44,7 +44,7 @@ There are different kinds of installation. You may choose the one best suiting y
 
 **Installation**
 
-1.  Download Installation from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBgl6MOdQY7l91qrBF2DNt1Q)
+1.  Download Installation from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c)
 1.  *(Optional, when offline*) Download and install the most recent [.NET 7.0 Runtimes](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
     1. ASP.NET Core Runtime x64 Installer
     2. .NET Runtime x64 Installer
@@ -131,7 +131,7 @@ The installation also creates a new Windows Event Log source `BotConnector2Teams
 
 **Installation and Configuration**
 
-1. Download the **bot-connector-to-teams** Docker image from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBgl6MOdQY7l91qrBF2DNt1Q) and register it with your image repository.
+1. Download the **bot-connector-to-teams** Docker image from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c) and register it with your image repository.
 
 1. Download the Docker Compose YAML files from [BotConnector2Teams Docker Compose Download](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Docker%20Compose).
 
@@ -154,7 +154,7 @@ For example in Docker Desktop \
 
 **Installation and Configuration**
 
-1. Download the **bot-connector-to-teams** Docker image from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBgl6MOdQY7l91qrBF2DNt1Q) and register it with your image repository.
+1. Download the **bot-connector-to-teams** Docker image from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c) and register it with your image repository.
 
 1. Download the HELM Chart files from [BotConnector2Teams HELM Chart Download](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/HELM%20Chart).
 

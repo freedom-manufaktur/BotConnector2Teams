@@ -1,12 +1,12 @@
 {
     "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
-    "version": "1.3.0",
+    "version": "1.6.0",
     "manifestVersion": "1.16",
     "id": "00000000-0000-0000-0000-000000000000",
     "packageName": "",
     "name": {
-        "short": "USU Chatbot Template 1.3.0",
-        "full": "USU Chatbot"
+        "short": "Knowledge2Teams Template 1.6.0",
+        "full": "Knowledge2Teams for USU Knowledge Bot"
     },
     "developer": {
         "name": "GentlemenGroup",
@@ -16,7 +16,7 @@
         "termsOfUseUrl": "https://www.gentlemengroup.de/beautiful-business/impressum/"
     },
     "description": {
-        "short": "BotConnector2Teams",
+        "short": "Interact with the USU Knowledge Bot and Knowledge Center.",
         "full": "Interact with the USU Knowledge Bot and Knowledge Center by chatting with a bot.\n\nFrom Gentlemen Group, powered by freedom manufaktur."
     },
     "icons": {

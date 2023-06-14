@@ -1,9 +1,9 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.Localization.schema.json",
-  "name.short": "USU",
-  "name.full": "USU Chatbot",
-  "description.short": "BotConnector2Teams",
-  "description.full": "Interagiere mit dem USU Knowledge Bot und Knowledge Center durch den Austausch von Chatnachrichten.\n\nVon Gentlemen Group, powered by freedom manufaktur.",
+  "name.short": "Knowledge2Teams",
+  "name.full": "Knowledge2Teams für USU Knowledge Bot",
+  "description.short": "Interagiere mit dem USU Knowledge Bot und Knowledge Center.",
+  "description.full": "Interagiere mit dem USU Knowledge Bot und Knowledge Center durch den Austausch von Chatnachrichten.\n\nVon Gentlemen Group, unterstützt durch freedom manufaktur.",
   "staticTabs[0].name": "Shop",
   "bots[0].commandLists[0].commands[0].title": "/Sprache ändern",
   "bots[0].commandLists[0].commands[0].description": "Kommunikations-Sprache ändern.",

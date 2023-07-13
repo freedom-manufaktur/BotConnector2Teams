@@ -184,7 +184,7 @@ For example in Kubernetes Dashboard \
 
 1.  Open the **Developer Portal** app → **Tools** → **Bot management** and add a new bot. \
     ![New Bot](Images/Teams%20Developer%20Portal%20New%20Bot.png)
-1.  Give the bot a name. For example *USU Chatbot*.
+1.  Give the bot a name. For example *Knowledge2Teams*.
 1.  Under **Configure** → **Endpoint address** enter the URL of **your** bot and append `/api/messages` \
     For example **`https://bot.MyCompany.com/api/messages`** \
     ![Bot endpoint](Images/Teams%20Developer%20Portal%20Bot%20Endpoint.png)
@@ -282,10 +282,10 @@ Let's put all this together.
 
 # 6. Create a personalized Teams App using your bot
 
-1.  Open the **Developer Portal** app → **Apps** and import our app template ([USU Chatbot Template.zip](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/)) to get started as quickly as possible. \
+1.  Open the **Developer Portal** app → **Apps** and import our app template ([Teams App Template.zip](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Downloads)) to get started as quickly as possible. \
     ![Import Teamplate](Images/Teams%20Developer%20Portal%20App%20Import%20Template.png)
 
-1.  Duplicate the Template and give it a nice name like *USU Chatbot*. \
+1.  Duplicate the Template and give it a nice name like *Knowledge2Teams*. \
     ![Duplicate Template](Images/Teams%20Developer%20Portal%20App%20Duplicate%20Template.png)
 
 1.  You may now delete the template and only keep the app with a valid *App ID*. \
@@ -313,7 +313,7 @@ Let's put all this together.
 1.  As a Teams Administrator open the [Microsoft Teams Admin Center](https://admin.teams.microsoft.com/).
 
 1.  Navigate to **Teams apps** → **Manage apps**. \
-    In the list of *all* apps, search for your app **USU Chatbot**. \
+    In the list of *all* apps, search for your app **Knowledge2Teams**. \
     And finally open your app. \
     ![Select Teams App](Images/Teams%20Admin%20Center%20Select%20App.png)
 
@@ -327,7 +327,7 @@ Let's put all this together.
 # 8. Use the Teams App
 As a Teams user of your organization.
 
-1.  In your [Teams App Store](https://teams.microsoft.com/_#/apps) search for **USU Chatbot** and add the app. \
+1.  In your [Teams App Store](https://teams.microsoft.com/_#/apps) search for **Knowledge2Teams** and add the app. \
     ![Install App](Images/Teams%20Install%20App.png)
 
 2.  Start chatting. \

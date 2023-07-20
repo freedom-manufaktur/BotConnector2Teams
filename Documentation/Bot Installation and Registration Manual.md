@@ -1,6 +1,6 @@
 ﻿BotConnector2Teams - Bot Installation and Registration Manual
 ---
-Version: `1.5.0` - `2023-05-31` \
+Version: `1.7.0` - `2023-07-20` \
 Author: martin@freedom-manufaktur.com \
 Link: [Documentation on GitHub](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Documentation/Bot%20Installation%20and%20Registration%20Manual.md)
 
@@ -295,6 +295,12 @@ Let's put all this together.
 
 1.  (Optional) Adjust the information under **Configure** → **Basic information** to your liking.
     > This Teams App is now **your** app, you can configure and extend it in any way you like.
+    
+    > ⚠ Attention iOS users!\
+    As of 2023-07-20 (*Microsoft Teams App* 5.13.0) there is a bug the iOS *Microsoft Teams App* that causes a weird looking empty screen when opening the app we just configured.\
+    As a **workaround** you can add **any** personal tab (other than *Chat* and *About*)\
+    **OR**\
+    Enable **What can your bot do?** → **Upload and download files**, which adds an (unused) *Files* tab, also fixing the issue.
 
 1.  Open **Configure** → **App features** → **Bot**. \
     Under **Identify your bot** select the bot that we previously created, replacing the template Bot ID *00000000-0000-0000-0000-000000000000*. Press **Save**. \

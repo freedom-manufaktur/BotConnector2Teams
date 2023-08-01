@@ -1,6 +1,6 @@
 ﻿BotConnector2Teams - Bot Installation and Registration Manual
 ---
-Version: `1.5.0` - `2023-05-31` \
+Version: `1.7.0` - `2023-08-01` \
 Author: martin@freedom-manufaktur.com \
 Link: [Documentation on GitHub](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Documentation/Bot%20Installation%20and%20Registration%20Manual.md)
 
@@ -48,7 +48,7 @@ There are different kinds of installation. You may choose the one best suiting y
 1.  *(Optional, when offline*) Download and install the most recent [.NET 7.0 Runtimes](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
     1. ASP.NET Core Runtime x64 Installer
     2. .NET Runtime x64 Installer
-1.	Install `BotConnector2Teams Setup 1.5.0`
+1.	Install `BotConnector2Teams Setup 1.7.0`
     > Note: This will automatically install .NET 7.0 if necessary
 1.  (Optional, verify running) Open a browser and navigate to \
     http://localhost:8100 \
@@ -295,6 +295,12 @@ Let's put all this together.
 
 1.  (Optional) Adjust the information under **Configure** → **Basic information** to your liking.
     > This Teams App is now **your** app, you can configure and extend it in any way you like.
+    
+    > ⚠ Attention iOS users!\
+    As of 2023-07-20 (*Microsoft Teams App* 5.13.0) there is a bug the iOS *Microsoft Teams App* that causes a weird looking empty screen when opening the app we just configured.\
+    As a **workaround** you can add **any** personal tab (other than *Chat* and *About*)\
+    **OR**\
+    Enable **What can your bot do?** → **Upload and download files**, which adds an (unused) *Files* tab, also fixing the issue.
 
 1.  Open **Configure** → **App features** → **Bot**. \
     Under **Identify your bot** select the bot that we previously created, replacing the template Bot ID *00000000-0000-0000-0000-000000000000*. Press **Save**. \
@@ -323,6 +329,9 @@ Let's put all this together.
     > Note: **The publish process usually takes about 1-5 minutes** without any visual indication. \
       After successful submission, it should look like this. \
       ![Published App](Images/Teams%20Admin%20Center%20Publish%20App%20Success.png)
+    
+    > Note: When deploying the app via policy, or submitting an update it will take **up to 24 hours** before your users will receive the app.
+    For testing, you may sign out/in of Teams to refresh your apps.
 
 # 8. Use the Teams App
 As a Teams user of your organization.

@@ -1,11 +1,11 @@
 {
     "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "manifestVersion": "1.16",
     "id": "00000000-0000-0000-0000-000000000000",
     "packageName": "",
     "name": {
-        "short": "Knowledge2Teams Template 1.6.0",
+        "short": "Knowledge2Teams Template 1.7.0",
         "full": "Knowledge2Teams for USU Knowledge Bot"
     },
     "developer": {
@@ -20,8 +20,8 @@
         "full": "Interact with the USU Knowledge Bot and Knowledge Center by chatting with a bot.\n\nFrom Gentlemen Group, powered by freedom manufaktur."
     },
     "icons": {
-        "outline": "outline.png",
-        "color": "color.png"
+        "outline": "Outline32.png",
+        "color": "Color192.png"
     },
     "accentColor": "#004f9f",
     "staticTabs": [

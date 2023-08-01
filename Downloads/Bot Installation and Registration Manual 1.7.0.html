@@ -42,7 +42,7 @@
     </head>
     <body class="vscode-body vscode-light">
         <h2 id="botconnector2teams---bot-installation-and-registration-manual">BotConnector2Teams - Bot Installation and Registration Manual</h2>
-<p>Version: <code>1.5.0</code> - <code>2023-05-31</code> <br>
+<p>Version: <code>1.7.0</code> - <code>2023-08-01</code> <br>
 Author: <a href="mailto:martin@freedom-manufaktur.com">martin@freedom-manufaktur.com</a> <br>
 Link: <a href="https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Documentation/Bot%20Installation%20and%20Registration%20Manual.html">Documentation on GitHub</a></p>
 <h2 id="table-of-contents">Table of contents</h2>
@@ -99,7 +99,7 @@ Link: <a href="https://github.com/freedom-manufaktur/BotConnector2Teams/tree/mai
 </ol>
 </li>
 <li>
-<p>Install <code>BotConnector2Teams Setup 1.5.0</code></p>
+<p>Install <code>BotConnector2Teams Setup 1.7.0</code></p>
 <blockquote>
 <p>Note: This will automatically install .NET 7.0 if necessary</p>
 </blockquote>
@@ -387,6 +387,13 @@ Read the next chapter on how to create a Teams App.</p>
 <p>(Optional) Adjust the information under <strong>Configure</strong> → <strong>Basic information</strong> to your liking.</p>
 <blockquote>
 <p>This Teams App is now <strong>your</strong> app, you can configure and extend it in any way you like.</p>
+</blockquote>
+<blockquote>
+<p>⚠ Attention iOS users!<br>
+As of 2023-07-20 (<em>Microsoft Teams App</em> 5.13.0) there is a bug the iOS <em>Microsoft Teams App</em> that causes a weird looking empty screen when opening the app we just configured.<br>
+As a <strong>workaround</strong> you can add <strong>any</strong> personal tab (other than <em>Chat</em> and <em>About</em>)<br>
+<strong>OR</strong><br>
+Enable <strong>What can your bot do?</strong> → <strong>Upload and download files</strong>, which adds an (unused) <em>Files</em> tab, also fixing the issue.</p>
 </blockquote>
 </li>
 <li>

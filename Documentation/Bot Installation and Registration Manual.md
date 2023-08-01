@@ -1,6 +1,6 @@
 ﻿BotConnector2Teams - Bot Installation and Registration Manual
 ---
-Version: `1.7.0` - `2023-07-20` \
+Version: `1.7.0` - `2023-08-01` \
 Author: martin@freedom-manufaktur.com \
 Link: [Documentation on GitHub](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Documentation/Bot%20Installation%20and%20Registration%20Manual.md)
 
@@ -48,7 +48,7 @@ There are different kinds of installation. You may choose the one best suiting y
 1.  *(Optional, when offline*) Download and install the most recent [.NET 7.0 Runtimes](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
     1. ASP.NET Core Runtime x64 Installer
     2. .NET Runtime x64 Installer
-1.	Install `BotConnector2Teams Setup 1.5.0`
+1.	Install `BotConnector2Teams Setup 1.7.0`
     > Note: This will automatically install .NET 7.0 if necessary
 1.  (Optional, verify running) Open a browser and navigate to \
     http://localhost:8100 \
@@ -329,6 +329,9 @@ Let's put all this together.
     > Note: **The publish process usually takes about 1-5 minutes** without any visual indication. \
       After successful submission, it should look like this. \
       ![Published App](Images/Teams%20Admin%20Center%20Publish%20App%20Success.png)
+    
+    > Note: When deploying the app via policy, or submitting an update it will take **up to 24 hours** before your users will receive the app.
+    For testing, you may sign out/in of Teams to refresh your apps.
 
 # 8. Use the Teams App
 As a Teams user of your organization.

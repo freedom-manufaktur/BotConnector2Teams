@@ -1,6 +1,6 @@
 ﻿BotConnector2Teams - Bot Installation and Registration Manual
 ---
-Version: `1.7.0` - `2023-08-01` \
+Version: `1.9.0` - `2023-12-05` \
 Author: martin@freedom-manufaktur.com \
 Link: [Documentation on GitHub](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Documentation/Bot%20Installation%20and%20Registration%20Manual.md)
 
@@ -45,11 +45,11 @@ There are different kinds of installation. You may choose the one best suiting y
 **Installation**
 
 1.  Download Installation from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c)
-1.  *(Optional, when offline*) Download and install the most recent [.NET 7.0 Runtimes](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+1.  *(Optional, when offline*) Download and install the most recent [.NET 8.0 Runtimes](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
     1. ASP.NET Core Runtime x64 Installer
     2. .NET Runtime x64 Installer
-1.	Install `BotConnector2Teams Setup 1.7.0`
-    > Note: This will automatically install .NET 7.0 if necessary
+1.	Install `BotConnector2Teams Setup 1.9.0`
+    > Note: This will automatically install .NET 8.0 if necessary
 1.  (Optional, verify running) Open a browser and navigate to \
     http://localhost:8100 \
     You should be greeted with the message\
@@ -69,7 +69,7 @@ There are different kinds of installation. You may choose the one best suiting y
 
 **Upgrade an existing Installation**
 
-1.	(Optional, when Offline) Download and install the most recent [.NET 7.0 Runtimes](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+1.	(Optional, when Offline) Download and install the most recent [.NET 8.0 Runtimes](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
     1.  ASP.NET Core Runtime x64 Installer
     1.	.NET Runtime x64 Installer
 1.	Install `BotConnector2Teams Setup vNext.exe` \
@@ -129,6 +129,9 @@ The installation also creates a new Windows Event Log source `BotConnector2Teams
 
 ## Installation as Docker Container via Docker Compose
 
+> Attention: Starting with version 1.9.0 of `BotConnector2Teams` the docker images are **non-root** based.
+> You **should** use `BotConnector2Teams` version 1.9.0 or later combined with `compose.yaml` version 1.9.0 or later.
+
 **Installation and Configuration**
 
 1. Download the **bot-connector-to-teams** Docker image from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c) and register it with your image repository.
@@ -151,6 +154,9 @@ For example in Docker Desktop \
 ---
 
 ## Installation as Kubernetes Deployment via HELM Chart
+
+> Attention: Starting with version 1.9.0 of `BotConnector2Teams` the docker images are **non-root** based.
+> You **should** use `BotConnector2Teams` version 1.9.0 or later combined with `Chart.yaml` version 1.9.0 or later.
 
 **Installation and Configuration**
 

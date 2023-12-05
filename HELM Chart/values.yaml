@@ -30,7 +30,7 @@ config:
 volume:
   storageClassName: manual
   capacity: 1Gi
-  # Windows Docker Desktop Kubernetes (1.25.9):
+  # Windows Docker Desktop Kubernetes (1.28.2):
   # C:\bot-connector-to-teams-data -> /run/desktop/mnt/host/c/bot-connector-to-teams-data
   hostPath: /run/desktop/mnt/host/c/bot-connector-to-teams-data
 
@@ -43,7 +43,7 @@ imagePullSecrets: []
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
 ingress:
   enabled: false
@@ -76,10 +76,12 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  runAsNonRoot: false # we need root to configure the Persistent Volume (PV)
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  runAsNonRoot: true # Our app runs as non-root user "app" (ID: 1654)
   # capabilities:
   #   drop:
   #   - ALL

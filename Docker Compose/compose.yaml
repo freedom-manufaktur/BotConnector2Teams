@@ -1,10 +1,20 @@
 name: bot-connector-to-teams
 
 services: # https://docs.docker.com/compose/compose-file/05-services/
+  init-app: # We allocate a directory and change the owner to "app" as a template for the actual volume mount.
+    image: busybox:1.36.1-musl
+    command:
+      - sh
+      - -c
+      - mkdir -p /app/data
+      - chown -R 1654:1654 /app/data
   app:
+    depends_on:
+      init-app:
+        condition: service_completed_successfully
     image: "bot-connector-to-teams:${ImageTag}"
     ports:
-      - "8100:80" # For public access, do not expose in SaaS environment!
+      - "${PublicPort}:8080"
     volumes:
       - app-data:/app/data
     healthcheck: # https://docs.docker.com/compose/compose-file/05-services/#healthcheck

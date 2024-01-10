@@ -1,79 +1,84 @@
 {
-    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
-    "version": "1.9.0",
-    "manifestVersion": "1.16",
-    "id": "00000000-0000-0000-0000-000000000000",
-    "packageName": "",
-    "name": {
-        "short": "Knowledge2Teams Template 1.9.0",
-        "full": "Knowledge2Teams for USU Knowledge Bot"
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "version": "1.10.0",
+  "manifestVersion": "1.16",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "packageName": "",
+  "name": {
+    "short": "Knowledge2Teams Templ. 1.10.0",
+    "full": "Knowledge2Teams for USU Knowledge Bot"
+  },
+  "developer": {
+    "name": "GentlemenGroup",
+    "mpnId": "",
+    "websiteUrl": "https://www.gentlemengroup.de/",
+    "privacyUrl": "https://www.gentlemengroup.de/beautiful-business/datenschutzerklaerung/",
+    "termsOfUseUrl": "https://www.gentlemengroup.de/beautiful-business/impressum/"
+  },
+  "description": {
+    "short": "Interact with the USU Knowledge Bot and Knowledge Center.",
+    "full": "Interact with the USU Knowledge Bot and Knowledge Center by chatting with a bot.\n\nFrom Gentlemen Group, powered by freedom manufaktur."
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "accentColor": "#004f9f",
+  "staticTabs": [
+    {
+      "entityId": "conversations",
+      "scopes": [
+        "personal"
+      ]
     },
-    "developer": {
-        "name": "GentlemenGroup",
-        "mpnId": "",
-        "websiteUrl": "https://www.gentlemengroup.de/",
-        "privacyUrl": "https://www.gentlemengroup.de/beautiful-business/datenschutzerklaerung/",
-        "termsOfUseUrl": "https://www.gentlemengroup.de/beautiful-business/impressum/"
-    },
-    "description": {
-        "short": "Interact with the USU Knowledge Bot and Knowledge Center.",
-        "full": "Interact with the USU Knowledge Bot and Knowledge Center by chatting with a bot.\n\nFrom Gentlemen Group, powered by freedom manufaktur."
-    },
-    "icons": {
-        "outline": "Outline32.png",
-        "color": "Color192.png"
-    },
-    "accentColor": "#004f9f",
-    "staticTabs": [
-        {
-            "entityId": "conversations",
-            "scopes": [
-                "personal"
-            ]
-        },
-        {
-            "entityId": "about",
-            "scopes": [
-                "personal"
-            ]
-        }
-    ],
-    "bots": [
-        {
-            "botId": "00000000-0000-0000-0000-000000000000",
-            "scopes": [
-                "personal"
-            ],
-            "commandLists": [
-                {
-                    "commands": [
-                        {
-                            "title": "/Change language",
-                            "description": "Change communication language."
-                        },
-                        {
-                            "title": "/New topic",
-                            "description": "Start a new topic, ending the current conversation."
-                        }
-                    ],
-                    "scopes": [
-                        "personal"
-                    ]
-                }
-            ],
-            "isNotificationOnly": false,
-            "supportsCalling": false,
-            "supportsVideo": false,
-            "supportsFiles": false
-        }
-    ],
-    "localizationInfo": {
-        "defaultLanguageTag": "en",
-        "additionalLanguages": [
-            {
-                "languageTag": "de",
-                "file": "de.json"
-            }
-        ]
+    {
+      "entityId": "about",
+      "scopes": [
+        "personal"
+      ]
     }
+  ],
+  "bots": [
+    {
+      "botId": "00000000-0000-0000-0000-000000000000",
+      "scopes": [
+        "personal"
+      ],
+      "commandLists": [
+        {
+          "commands": [
+            {
+              "title": "/Change language",
+              "description": "Change communication language."
+            },
+            {
+              "title": "/New topic",
+              "description": "Start a new topic, ending the current conversation."
+            },
+            {
+              "title": "/Create ticket",
+              "description": "Creates a new ticket in USU Service Manager."
+            }
+          ],
+          "scopes": [
+            "personal"
+          ]
+        }
+      ],
+      "isNotificationOnly": false,
+      "supportsCalling": false,
+      "supportsVideo": false,
+      "supportsFiles": true
+    }
+  ],
+  "validDomains": [],
+  "localizationInfo": {
+    "defaultLanguageTag": "en",
+    "additionalLanguages": [
+      {
+        "languageTag": "de",
+        "file": "de.json"
+      }
+    ]
+  }
 }

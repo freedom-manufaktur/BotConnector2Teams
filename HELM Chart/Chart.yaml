@@ -9,9 +9,9 @@ description: BotConnector2Teams by GentlemenGroup, powered by freedom manufaktur
 type: application
 
 # Version of this Chart - https://helm.sh/docs/topics/charts/#charts-and-versioning
-version: 1.9.0
+version: 1.10.0
 
 # The version of the app that this contains (optional). - https://helm.sh/docs/topics/charts/#the-appversion-field
-appVersion: "1.9.0" # or latest
+appVersion: "1.10.0" # or latest
 
 icon: https://static.freedom-manufaktur.com/bot-connector-to-teams-helm.svg

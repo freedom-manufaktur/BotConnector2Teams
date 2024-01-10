@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.Localization.schema.json",
-  "name.short": "Knowledge2Teams",
-  "name.full": "Knowledge2Teams für USU Knowledge Bot",
-  "description.short": "Interagiere mit dem USU Knowledge Bot und Knowledge Center.",
-  "description.full": "Interagiere mit dem USU Knowledge Bot und Knowledge Center durch den Austausch von Chatnachrichten.\n\nVon Gentlemen Group, unterstützt durch freedom manufaktur.",
-  "staticTabs[0].name": "Shop",
-  "bots[0].commandLists[0].commands[0].title": "/Sprache ändern",
-  "bots[0].commandLists[0].commands[0].description": "Kommunikations-Sprache ändern.",
-  "bots[0].commandLists[0].commands[1].title": "/Neues Thema",
-  "bots[0].commandLists[0].commands[1].description": "Neues Thema beginnen, und die aktuelle Konversation beenden."
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.Localization.schema.json",
+    "name.short": "Knowledge2Teams",
+    "name.full": "Knowledge2Teams für USU Knowledge Bot",
+    "description.short": "Interagiere mit dem USU Knowledge Bot und Knowledge Center.",
+    "description.full": "Interagiere mit dem USU Knowledge Bot und Knowledge Center durch den Austausch von Chatnachrichten.\n\nVon Gentlemen Group, unterstützt durch freedom manufaktur.",
+    "bots[0].commandLists[0].commands[0].title": "/Sprache ändern",
+    "bots[0].commandLists[0].commands[0].description": "Kommunikations-Sprache ändern.",
+    "bots[0].commandLists[0].commands[1].title": "/Neues Thema",
+    "bots[0].commandLists[0].commands[1].description": "Neues Thema beginnen, und die aktuelle Konversation beenden.",
+    "bots[0].commandLists[0].commands[2].title": "/Ticket anlegen",
+    "bots[0].commandLists[0].commands[2].description": "Ein neues Ticket im USU Service Manager anlegen."
 }

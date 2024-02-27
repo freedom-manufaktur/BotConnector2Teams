@@ -420,9 +420,9 @@ Please read this list when upgrading an existing installation.
 
 # Need support?
 If you have any questions regarding the installation and configuration of the BotConnector2Teams, contact us at
-* All questions regarding the BotConnector2Teams \
+* All questions regarding the *BotConnector2Teams* \
     support@gentlemengroup.de (Gentlemen Group)
 * All questions around the *BotConnector2Teams Microservice* / *Teams App Registration* / *whoosh Oktopus* \
     support@freedom-manufaktur.com (freedom manufaktur)
-* All questions regarding the USU Knowledge Manager itself \
+* All questions regarding the *USU Knowledge Manager* itself \
     support@usu.com (USU)

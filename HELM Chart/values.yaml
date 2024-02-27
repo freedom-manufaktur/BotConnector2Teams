@@ -1,11 +1,7 @@
-# Default values for bot-connector-to-teams.
-#
-# Use this file to configure your app or use a second config file:
-# helm upgrade release-name . --install --values values.yaml --values values.customer.yaml
-# After install test the app with:
-# helm test release-name
-
 config:
+  App:
+    # The URL for public internet access to this instance of the app. For example: https://knowledge.gentlemengroup.de/BC2T
+    PublicUrl: ""
   AzureBot:
     MicrosoftAppType: "MultiTenant"
     MicrosoftAppId: ""
@@ -21,6 +17,10 @@ config:
     BaseUrl: ""
     # Omit, if equal to: [BaseUrl]/knowledgecenter/docShow.do;realm=defaulthost?mandatorKey=MANDATOR_USU&callFromKminer=true&entity.GUID={{DocumentGuid}}
     DocumentUrl: ""
+  Oktopus:
+    # For example: https://whoosh.oktopus
+    BaseUrl: ""
+    ApiKey: ""
   License:
     # For example: eyJMaWNlbnNlIjp7Il[...]
     Key: ""

@@ -5,6 +5,7 @@ metadata:
   labels:
     {{- include "bot-connector-to-teams.labels" . | nindent 4 }}
 data:
+  App.PublicUrl: {{ .Values.config.App.PublicUrl | quote }}
   AzureBot.MicrosoftAppType: {{ .Values.config.AzureBot.MicrosoftAppType | quote }}
   AzureBot.MicrosoftAppId: {{ .Values.config.AzureBot.MicrosoftAppId | quote }}
   AzureBot.MicrosoftAppPassword: {{ .Values.config.AzureBot.MicrosoftAppPassword | quote }}
@@ -14,5 +15,7 @@ data:
   UsuBot.ConnectorType: {{ .Values.config.UsuBot.ConnectorType | quote }}
   UsuKnowledgeManager.BaseUrl: {{ .Values.config.UsuKnowledgeManager.BaseUrl | quote }}
   UsuKnowledgeManager.DocumentUrl: {{ .Values.config.UsuKnowledgeManager.DocumentUrl | quote }}
+  Oktopus.BaseUrl: {{ .Values.config.Oktopus.BaseUrl | quote }}
+  Oktopus.ApiKey: {{ .Values.config.Oktopus.ApiKey | quote }}
   License.Key: {{ .Values.config.License.Key | quote }}
   Api.EnableDetailedErrorMessages: {{ .Values.config.Api.EnableDetailedErrorMessages | quote }}

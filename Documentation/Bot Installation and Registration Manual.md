@@ -1,6 +1,6 @@
 ﻿BotConnector2Teams - Bot Installation and Registration Manual
 ---
-Version: `1.10.0` - `2024-01-10` \
+Version: `1.12.0` - `2024-02-27` \
 Author: martin@freedom-manufaktur.com \
 Link: [Documentation on GitHub](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Documentation/Bot%20Installation%20and%20Registration%20Manual.md)
 
@@ -18,6 +18,14 @@ Table of contents
 - [6. Create a personalized Teams App using your bot](#6-create-a-personalized-teams-app-using-your-bot)
 - [7. Publish your Teams App to your Organization/Users](#7-publish-your-teams-app-to-your-organizationusers)
 - [8. Use the Teams App](#8-use-the-teams-app)
+- [What's new?](#whats-new)
+  - [\[1.12.0\] - 2024-02-27](#1120---2024-02-27)
+    - [Changed](#changed)
+    - [Fixed](#fixed)
+  - [\[1.10.0\] - 2024-01-18](#1100---2024-01-18)
+    - [Changed](#changed-1)
+  - [\[1.9.0\] - 2023-12-20](#190---2023-12-20)
+    - [Changed](#changed-2)
 - [Need support?](#need-support)
 <!--/TOC-->
 
@@ -48,7 +56,7 @@ There are different kinds of installation. You may choose the one best suiting y
 1.  *(Optional, when offline*) Download and install the most recent [.NET 8.0 Runtimes](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
     1. ASP.NET Core Runtime x64 Installer
     2. .NET Runtime x64 Installer
-1.	Install `BotConnector2Teams Setup 1.10.0`
+1.	Install `BotConnector2Teams Setup 1.12.0`
     > Note: This will automatically install .NET 8.0 if necessary
 1.  (Optional, verify running) Open a browser and navigate to \
     http://localhost:8100 \
@@ -64,7 +72,7 @@ There are different kinds of installation. You may choose the one best suiting y
     * Configure your Windows Firewall to allow inbound traffic to port `8100`
         > Note: You must bind a certificate to this port and use TLS/SSL (see *Configuration*).
 
-1.  As a result of the previous steps you should have a publically accessible and TLS secured endpoint like **https://bot.MyCompany.com**. \
+1.  As a result of the previous steps you should have a publically accessible and TLS secured endpoint like **https://knowledge.MyCompany.com/BC2T**. \
     We will use this address in the next steps.
 
 **Upgrade an existing Installation**
@@ -85,6 +93,10 @@ Editing `appsettings.json` will show something like
 {
   "$Help.Urls": "Enter the URLs you want the App to be available at. For example https://localhost:8101;http://localhost:8100",
   "Urls": "https://localhost:8443",
+  "App": {
+    "$Help.PublicUrl": "The URL for public internet access to this instance of the app. For example: https://knowledge.gentlemengroup.de/BC2T",
+    "PublicUrl": ""
+  },
   "AzureBot": {
     "MicrosoftAppType": "MultiTenant",
     "MicrosoftAppId": "",
@@ -102,6 +114,11 @@ Editing `appsettings.json` will show something like
     "BaseUrl": "",
     "$Help.DocumentUrl": "Omit, if equal to: [BaseUrl]/knowledgecenter/docShow.do;realm=defaulthost?mandatorKey=MANDATOR_USU&callFromKminer=true&entity.GUID={{DocumentGuid}}",
     "DocumentUrl": null
+  },
+  "Oktopus": {
+    "$Help.BaseUrl": "For example: https://whoosh.oktopus",
+    "BaseUrl": "",
+    "ApiKey": ""
   },
   "License": {
     "Key": "eyJMaWNlbnN[...]"    
@@ -130,7 +147,7 @@ The installation also creates a new Windows Event Log source `BotConnector2Teams
 ## Installation as Docker Container via Docker Compose
 
 > Attention: Starting with version 1.9.0 of `BotConnector2Teams` the docker images are **non-root** based.
-> You **should** use `BotConnector2Teams` version 1.9.0 or later combined with `compose.yaml` version 1.9.0 or later.
+> You **should** use `BotConnector2Teams` version 1.12.0 or later combined with `compose.yaml` version 1.12.0 or later.
 
 **Installation and Configuration**
 
@@ -191,8 +208,8 @@ For example in Kubernetes Dashboard \
 1.  Open the **Developer Portal** app → **Tools** → **Bot management** and add a new bot. \
     ![New Bot](Images/Teams%20Developer%20Portal%20New%20Bot.png)
 1.  Give the bot a name. For example *Knowledge2Teams*.
-1.  Under **Configure** → **Endpoint address** enter the URL of **your** bot and append `/api/messages` \
-    For example **`https://bot.MyCompany.com/api/messages`** \
+1.  Under **Configure** → **Endpoint address** enter the URL of **your** bot and append `/bot` \
+    For example **`https://knowledge.MyCompany.com/BC2T/bot`** \
     ![Bot endpoint](Images/Teams%20Developer%20Portal%20Bot%20Endpoint.png)
 1.  Under **Client secrets** create a new secret and write it down. \
     ![Bot secret](Images/Teams%20Developer%20Portal%20Bot%20Secret.png)
@@ -217,9 +234,13 @@ As a result of the previous chapters you should have the following information a
 * USU Knowledge Manager URL (e.g. *https://knowledge.MyCompany.com*)
 * USU Knowledge Bot URL (probably the same as *USU Knowledge Manager*)
 * USU Knowledge Bot API Key (e.g. *d2hvb3NoIE9rdG9wdXMgaXMgdGhlIGJlc3QhISE=*)
-* BotConnector2Teams Microservice URL (e.g. *https://bot.MyCompany.com*)
+* BotConnector2Teams Microservice URL (e.g. *https://knowledge.MyCompany.com/BC2T*)
 * (Optional) BotConnector2Teams License Key (e.g. *eyJMaWNlbnN[...]*)
   > You may enter your license later, but you will receive an unlicensed message. Acquire a license by contacting support@gentlemengroup.de.
+* (Optional) whoosh Oktopus instance with
+  * whoosh Oktopus URL (e.g. *https://whoosh.oktopus/MyCompany*)
+  * whoosh Oktopus API Key (e.g. *7isH1m5d-808CrcN_7DDK1FVV8y76iwa*)
+  > [whoosh Oktopus](https://freedom-manufaktur.com/whoosh-oktopus) is required to use the `/Create Ticket` and `Save as PDF` features. Contact support@gentlemengroup.de to register an instance of [whoosh Oktopus](https://freedom-manufaktur.com/whoosh-oktopus).
 
 Let's put all this together.
 
@@ -228,6 +249,10 @@ Let's put all this together.
 2.  Enter the information from above into the corresponding properties. *We use the Windows service as an example.*
     ```
     {
+      "App": {
+        "$Help.PublicUrl": "The URL for public internet access to this instance of the app. For example: https://knowledge.gentlemengroup.de/BC2T",
+        "PublicUrl": "https://knowledge.MyCompany.com/BC2T"
+      },
       "AzureBot": {
         "MicrosoftAppType": "MultiTenant",
         "MicrosoftAppId": "6ee9a76d-8c22-493f-8e88-9b69bafa3386",
@@ -246,6 +271,11 @@ Let's put all this together.
         "$Help.DocumentUrl": "Omit, if equal to: [BaseUrl]/knowledgecenter/docShow.do;realm=defaulthost?mandatorKey=MANDATOR_USU&callFromKminer=true&entity.GUID={{DocumentGuid}}",
         "DocumentUrl": null
       },
+      "Oktopus": {
+        "$Help.BaseUrl": "For example: https://whoosh.oktopus",
+        "BaseUrl": "https://whoosh.oktopus/MyCompany",
+        "ApiKey": "7isH1m5d-808CrcN_7DDK1FVV8y76iwa"
+      },
       "License": {
         "Key": "eyJMaWNlbnN[...]"    
       }
@@ -256,7 +286,7 @@ Let's put all this together.
 3.  Restart the *BotConnector2Teams* Service/Container.
 
 4.  (Optional) Open a browser and enter the URL of **your** bot and append `/healthcheck` \
-    For example **`https://bot.MyCompany.com/healthcheck`** \
+    For example **`https://knowledge.MyCompany.com/BC2T/healthcheck`** \
     This should result in a page where everything has the status **Healthy**.
     ```
     {
@@ -275,7 +305,15 @@ Let's put all this together.
           "status": "Healthy"
         },
         {
+          "name": "Oktopus",
+          "status": "Healthy"
+        },
+        {
           "name": "License",
+          "status": "Healthy"
+        },
+        {
+          "name": "PDF-Support",
           "status": "Healthy"
         }
       ]
@@ -293,6 +331,8 @@ Let's put all this together.
 
 1.  Duplicate the Template and give it a nice name like *Knowledge2Teams*. \
     ![Duplicate Template](Images/Teams%20Developer%20Portal%20App%20Duplicate%20Template.png)
+    > ⚠ Attention\
+    If you use a name **other than** *Knowledge2Teams* you **should also** update the translated names under **Configure** → **Languages** or you may confuse your users.
 
 1.  You may now delete the template and only keep the app with a valid *App ID*. \
     ![Valid App ID](Images/Teams%20Developer%20Portal%20App%20Valid%20ID.png)
@@ -311,6 +351,11 @@ Let's put all this together.
 1.  Open **Configure** → **App features** → **Bot**. \
     Under **Identify your bot** select the bot that we previously created, replacing the template Bot ID *00000000-0000-0000-0000-000000000000*. Press **Save**. \
     ![Select Bot](Images/Teams%20Developer%20Portal%20App%20Select%20Bot.png)
+
+1.  (Optional) If you **do not** want to use the `/Create Ticket` feature \
+    Open **Configure** → **App features** → **Bot**. \
+    Under **Commands** select the **/Create ticket** command and **Delete** it.
+    > If you **do** want to use the `/Create Ticket` feature, you may add the command to the list. Afterwards, also update the command translation under **Configure** → **Languages**.
 
 1. Your App is now ready!
 
@@ -351,11 +396,33 @@ As a Teams user of your organization.
 3.  Done!
     > Congratulations on successfully installing, configuring, registering and using the **BotConnector2Teams**.
 
+# What's new?
+This section lists **important** changes to the documentation, *Teams App Template* and Docker files.
+Please read this list when upgrading an existing installation.
+> The full app changelog can be found in the [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c)
+
+## [1.12.0] - 2024-02-27
+### Changed
+- Documentation, *Docker Compose* and *HELM Chart* have been updated with `App:PublicUrl`, `Oktopus:BaseUrl` and `Oktopus:ApiKey` variables.
+  These can be left blank, unless you want to use the `/Create Ticket` and `Save as PDF` features
+- *Docker Compose* container initialization was updated for Docker v25.0
+
+### Fixed
+- The *Docker Compose* healthcheck was fixed (regression from 1.9.0).
+
+## [1.10.0] - 2024-01-18
+### Changed
+- *Teams App Template* now contains the `/Create Ticket` command.
+
+## [1.9.0] - 2023-12-20
+### Changed
+- *Docker Compose* and *HELM Chart* have been updated for running as **non-root** container. This includes a port number change.
+
 # Need support?
 If you have any questions regarding the installation and configuration of the BotConnector2Teams, contact us at
-* All questions regarding the BotConnector2Teams \
+* All questions regarding the *BotConnector2Teams* \
     support@gentlemengroup.de (Gentlemen Group)
-* All questions around the *BotConnector2Teams Microservice* / *Teams App Registration* \
+* All questions around the *BotConnector2Teams Microservice* / *Teams App Registration* / *whoosh Oktopus* \
     support@freedom-manufaktur.com (freedom manufaktur)
-* All questions regarding the USU Knowledge Manager itself \
+* All questions regarding the *USU Knowledge Manager* itself \
     support@usu.com (USU)

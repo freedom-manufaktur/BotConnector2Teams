@@ -1,4 +1,4 @@
-﻿1. Test the application by running these commands:
+﻿1. Test the application by running these commands (Test.ps1):
   helm test {{ .Release.Name }}
 
 2. Get the application URL by running these commands:
@@ -14,21 +14,23 @@
   echo http://$NODE_IP:$NODE_PORT
 {{- else if contains "LoadBalancer" .Values.service.type }}
      NOTE: It may take a few minutes for the LoadBalancer IP to be available.
-           You can watch the status of by running 'kubectl get --namespace {{ .Release.Namespace }} svc -w {{ include "bot-connector-to-teams.fullname" . }}'
+           You can watch its status by running 'kubectl get --namespace {{ .Release.Namespace }} svc -w {{ include "bot-connector-to-teams.fullname" . }}'
   export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "bot-connector-to-teams.fullname" . }} --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}")
   echo http://$SERVICE_IP:{{ .Values.service.port }}
 {{- else if contains "ClusterIP" .Values.service.type }}
   ### Connect to the application (Bash) ###
   export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "bot-connector-to-teams.name" . }},app.kubernetes.io/instance={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}")
   export CONTAINER_PORT=$(kubectl get pod --namespace {{ .Release.Namespace }} $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
-  echo "Visit http://localhost:8100 to use your application"
+  echo "Application:  http://localhost:8100"
+  echo "Health check: http://localhost:8100/healthcheck"
   kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8100:$CONTAINER_PORT
   ### End of Bash ###
 
-  ### Connect to the application (PowerShell) ###
+  ### Connect to the application (PowerShell, Connect.ps1) ###
   $POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "bot-connector-to-teams.name" . }},app.kubernetes.io/instance={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}")
   $CONTAINER_PORT=$(kubectl get pod --namespace {{ .Release.Namespace }} $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
-  echo "Visit http://localhost:8100 to use your application"
+  echo "Application:  http://localhost:8100"
+  echo "Health check: http://localhost:8100/healthcheck"
   kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8100:$CONTAINER_PORT
   ### End of PowerShell ###
 {{- end }}

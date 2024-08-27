@@ -1,6 +1,6 @@
 ﻿BotConnector2Teams - Bot Installation and Registration Manual
 ---
-Version: `1.12.0` - `2024-02-27` \
+Version: `1.13.0` - `2024-08-27` \
 Author: martin@freedom-manufaktur.com \
 Link: [Documentation on GitHub](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Documentation/Bot%20Installation%20and%20Registration%20Manual.md)
 
@@ -19,13 +19,15 @@ Table of contents
 - [7. Publish your Teams App to your Organization/Users](#7-publish-your-teams-app-to-your-organizationusers)
 - [8. Use the Teams App](#8-use-the-teams-app)
 - [What's new?](#whats-new)
-  - [\[1.12.0\] - 2024-02-27](#1120---2024-02-27)
+  - [\[1.13.0\] - 2024-08-26](#1130---2024-08-26)
     - [Changed](#changed)
+  - [\[1.12.0\] - 2024-02-27](#1120---2024-02-27)
+    - [Changed](#changed-1)
     - [Fixed](#fixed)
   - [\[1.10.0\] - 2024-01-18](#1100---2024-01-18)
-    - [Changed](#changed-1)
-  - [\[1.9.0\] - 2023-12-20](#190---2023-12-20)
     - [Changed](#changed-2)
+  - [\[1.9.0\] - 2023-12-20](#190---2023-12-20)
+    - [Changed](#changed-3)
 - [Need support?](#need-support)
 <!--/TOC-->
 
@@ -56,7 +58,7 @@ There are different kinds of installation. You may choose the one best suiting y
 1.  *(Optional, when offline*) Download and install the most recent [.NET 8.0 Runtimes](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
     1. ASP.NET Core Runtime x64 Installer
     2. .NET Runtime x64 Installer
-1.	Install `BotConnector2Teams Setup 1.12.0`
+1.	Install `BotConnector2Teams Setup 1.13.0`
     > Note: This will automatically install .NET 8.0 if necessary
 1.  (Optional, verify running) Open a browser and navigate to \
     http://localhost:8100 \
@@ -400,6 +402,10 @@ As a Teams user of your organization.
 This section lists **important** changes to the documentation, *Teams App Template* and Docker files.
 Please read this list when upgrading an existing installation.
 > The full app changelog can be found in the [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c)
+
+## [1.13.0] - 2024-08-26
+### Changed
+- *HELM Chart* has been updated for *HELM 3.15.4* and *Kubernetes 1.30.2*
 
 ## [1.12.0] - 2024-02-27
 ### Changed

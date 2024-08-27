@@ -19,7 +19,7 @@ Table of contents
 - [7. Publish your Teams App to your Organization/Users](#7-publish-your-teams-app-to-your-organizationusers)
 - [8. Use the Teams App](#8-use-the-teams-app)
 - [What's new?](#whats-new)
-  - [\[1.13.0\] - 2024-08-26](#1130---2024-08-26)
+  - [\[1.13.0\] - 2024-08-27](#1130---2024-08-27)
     - [Changed](#changed)
   - [\[1.12.0\] - 2024-02-27](#1120---2024-02-27)
     - [Changed](#changed-1)
@@ -403,15 +403,15 @@ This section lists **important** changes to the documentation, *Teams App Templa
 Please read this list when upgrading an existing installation.
 > The full app changelog can be found in the [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c)
 
-## [1.13.0] - 2024-08-26
+## [1.13.0] - 2024-08-27
 ### Changed
-- *HELM Chart* has been updated for *HELM 3.15.4* and *Kubernetes 1.30.2*
+- *Docker Compose* has been updated for *Docker v25.0*.
+- *HELM Chart* has been updated for *HELM 3.15.4* and *Kubernetes 1.30.2*.
 
 ## [1.12.0] - 2024-02-27
 ### Changed
 - Documentation, *Docker Compose* and *HELM Chart* have been updated with `App:PublicUrl`, `Oktopus:BaseUrl` and `Oktopus:ApiKey` variables.
   These can be left blank, unless you want to use the `/Create Ticket` and `Save as PDF` features
-- *Docker Compose* container initialization was updated for Docker v25.0
 
 ### Fixed
 - The *Docker Compose* healthcheck was fixed (regression from 1.9.0).

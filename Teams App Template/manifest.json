@@ -1,23 +1,22 @@
 {
-  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
-  "version": "1.10.0",
-  "manifestVersion": "1.16",
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.20/MicrosoftTeams.schema.json",
+  "version": "1.14.0",
+  "manifestVersion": "1.20",
   "id": "00000000-0000-0000-0000-000000000000",
-  "packageName": "",
   "name": {
-    "short": "Knowledge2Teams Templ. 1.10.0",
+    "short": "Knowledge2Teams Templ. 1.14.0",
     "full": "Knowledge2Teams for USU Knowledge Bot"
   },
   "developer": {
-    "name": "GentlemenGroup",
+    "name": "freedom manufaktur",
     "mpnId": "",
-    "websiteUrl": "https://www.gentlemengroup.de/",
-    "privacyUrl": "https://www.gentlemengroup.de/beautiful-business/datenschutzerklaerung/",
-    "termsOfUseUrl": "https://www.gentlemengroup.de/beautiful-business/impressum/"
+    "websiteUrl": "https://www.freedom-manufaktur.com/",
+    "privacyUrl": "https://www.freedom-manufaktur.com/datenschutz/",
+    "termsOfUseUrl": "https://www.freedom-manufaktur.com/impressum/"
   },
   "description": {
     "short": "Interact with the USU Knowledge Bot and Knowledge Center.",
-    "full": "Interact with the USU Knowledge Bot and Knowledge Center by chatting with a bot.\n\nFrom Gentlemen Group, powered by freedom manufaktur."
+    "full": "Interact with the USU Knowledge Bot and Knowledge Center by chatting with a bot.\n\nProudly presented by freedom manufaktur."
   },
   "icons": {
     "outline": "outline.png",

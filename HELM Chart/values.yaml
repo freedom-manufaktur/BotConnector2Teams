@@ -12,7 +12,7 @@ image:
 
 config:
   App:
-    # The URL for public internet access to this instance of the app. For example: https://knowledge.gentlemengroup.de/BC2T
+    # The URL for public internet access to this instance of the app. For example: https://ukm.infreiheit.de/BC2T
     PublicUrl: ""
   AzureBot:
     MicrosoftAppType: "MultiTenant"
@@ -20,12 +20,12 @@ config:
     MicrosoftAppPassword: ""
     MicrosoftAppTenantId: ""
   UsuBot:
-    # For example: https://knowledge.gentlemengroup.de
+    # For example: https://ukm.infreiheit.de
     BaseUrl: ""
     ApiKey: ""
     ConnectorType: "default:Connector2Teams"
   UsuKnowledgeManager:
-    # For example: https://knowledge.gentlemengroup.de
+    # For example: https://ukm.infreiheit.de
     BaseUrl: ""
     # Omit, if equal to: [BaseUrl]/knowledgecenter/docShow.do;realm=defaulthost?mandatorKey=MANDATOR_USU&callFromKminer=true&entity.GUID={{DocumentGuid}}
     DocumentUrl: ""

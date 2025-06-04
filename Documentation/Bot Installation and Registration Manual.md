@@ -1,6 +1,6 @@
 ﻿BotConnector2Teams - Bot Installation and Registration Manual
 ---
-Version: `1.13.0` - `2024-08-27` \
+Version: `1.14.0` - `2025-06-04` \
 Author: martin@freedom-manufaktur.com \
 Link: [Documentation on GitHub](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Documentation/Bot%20Installation%20and%20Registration%20Manual.md)
 
@@ -96,7 +96,7 @@ Editing `appsettings.json` will show something like
   "$Help.Urls": "Enter the URLs you want the App to be available at. For example https://localhost:8101;http://localhost:8100",
   "Urls": "https://localhost:8443",
   "App": {
-    "$Help.PublicUrl": "The URL for public internet access to this instance of the app. For example: https://knowledge.gentlemengroup.de/BC2T",
+    "$Help.PublicUrl": "The URL for public internet access to this instance of the app. For example: https://ukm.infreiheit.de/BC2T",
     "PublicUrl": ""
   },
   "AzureBot": {
@@ -106,13 +106,13 @@ Editing `appsettings.json` will show something like
     "MicrosoftAppTenantId": ""
   },
   "UsuBot": {
-    "$Help.BaseUrl": "For example: https://knowledge.gentlemengroup.de",
+    "$Help.BaseUrl": "For example: https://ukm.infreiheit.de",
     "BaseUrl": "",
     "ApiKey": "",
     "ConnectorType": "default:Connector2Teams"
   },
   "UsuKnowledgeManager": {
-    "$Help.BaseUrl": "For example: https://knowledge.gentlemengroup.de",
+    "$Help.BaseUrl": "For example: https://ukm.infreiheit.de",
     "BaseUrl": "",
     "$Help.DocumentUrl": "Omit, if equal to: [BaseUrl]/knowledgecenter/docShow.do;realm=defaulthost?mandatorKey=MANDATOR_USU&callFromKminer=true&entity.GUID={{DocumentGuid}}",
     "DocumentUrl": null
@@ -238,11 +238,11 @@ As a result of the previous chapters you should have the following information a
 * USU Knowledge Bot API Key (e.g. *d2hvb3NoIE9rdG9wdXMgaXMgdGhlIGJlc3QhISE=*)
 * BotConnector2Teams Microservice URL (e.g. *https://knowledge.MyCompany.com/BC2T*)
 * (Optional) BotConnector2Teams License Key (e.g. *eyJMaWNlbnN[...]*)
-  > You may enter your license later, but you will receive an unlicensed message. Acquire a license by contacting support@gentlemengroup.de.
+  > You may enter your license later, but you will receive an unlicensed message. Acquire a license by contacting support@freedom-manufaktur.com.
 * (Optional) whoosh Oktopus instance with
   * whoosh Oktopus URL (e.g. *https://whoosh.oktopus/MyCompany*)
   * whoosh Oktopus API Key (e.g. *7isH1m5d-808CrcN_7DDK1FVV8y76iwa*)
-  > [whoosh Oktopus](https://freedom-manufaktur.com/whoosh-oktopus) is required to use the `/Create Ticket` and `Save as PDF` features. Contact support@gentlemengroup.de to register an instance of [whoosh Oktopus](https://freedom-manufaktur.com/whoosh-oktopus).
+  > [whoosh Oktopus](https://freedom-manufaktur.com/whoosh-oktopus) is required to use the `/Create Ticket` and `Save as PDF` features. Contact support@freedom-manufaktur.com to register an instance of [whoosh Oktopus](https://freedom-manufaktur.com/whoosh-oktopus).
 
 Let's put all this together.
 
@@ -252,7 +252,7 @@ Let's put all this together.
     ```
     {
       "App": {
-        "$Help.PublicUrl": "The URL for public internet access to this instance of the app. For example: https://knowledge.gentlemengroup.de/BC2T",
+        "$Help.PublicUrl": "The URL for public internet access to this instance of the app. For example: https://ukm.infreiheit.de/BC2T",
         "PublicUrl": "https://knowledge.MyCompany.com/BC2T"
       },
       "AzureBot": {
@@ -262,13 +262,13 @@ Let's put all this together.
         "MicrosoftAppTenantId": ""
       },
       "UsuBot": {
-        "$Help.BaseUrl": "For example: https://knowledge.gentlemengroup.de",
+        "$Help.BaseUrl": "For example: https://ukm.infreiheit.de",
         "BaseUrl": "https://knowledge.MyCompany.com",
         "ApiKey": "d2hvb3NoIE9rdG9wdXMgaXMgdGhlIGJlc3QhISE=",
         "ConnectorType": "default:Connector2Teams"
       },
       "UsuKnowledgeManager": {
-        "$Help.BaseUrl": "For example: https://knowledge.gentlemengroup.de",
+        "$Help.BaseUrl": "For example: https://ukm.infreiheit.de",
         "BaseUrl": "https://knowledge.MyCompany.com",
         "$Help.DocumentUrl": "Omit, if equal to: [BaseUrl]/knowledgecenter/docShow.do;realm=defaulthost?mandatorKey=MANDATOR_USU&callFromKminer=true&entity.GUID={{DocumentGuid}}",
         "DocumentUrl": null
@@ -403,7 +403,7 @@ This section lists **important** changes to the documentation, *Teams App Templa
 Please read this list when upgrading an existing installation.
 > The full app changelog can be found in the [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c)
 
-## [1.13.0] - 2024-08-27
+## [1.14.0] - 2024-08-27
 ### Changed
 - *Docker Compose* has been updated for *Docker v25.0*.
 - *HELM Chart* has been updated for *HELM 3.15.4* and *Kubernetes 1.30.2*.
@@ -427,8 +427,8 @@ Please read this list when upgrading an existing installation.
 # Need support?
 If you have any questions regarding the installation and configuration of the BotConnector2Teams, contact us at
 * All questions regarding the *BotConnector2Teams* \
-    support@gentlemengroup.de (Gentlemen Group)
+  [services@gentlehuman.de](mailto:services@gentlehuman.de) (Gentlehuman Factory)
 * All questions around the *BotConnector2Teams Microservice* / *Teams App Registration* / *whoosh Oktopus* \
-    support@freedom-manufaktur.com (freedom manufaktur)
+  [support@freedom-manufaktur.com](mailto:support@freedom-manufaktur.com) (freedom manufaktur)
 * All questions regarding the *USU Knowledge Manager* itself \
-    support@usu.com (USU)
+  [support@usu.com](mailto:support@usu.com) (USU)

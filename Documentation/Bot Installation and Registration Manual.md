@@ -19,7 +19,7 @@ Table of contents
 - [7. Publish your Teams App to your Organization/Users](#7-publish-your-teams-app-to-your-organizationusers)
 - [8. Use the Teams App](#8-use-the-teams-app)
 - [What's new?](#whats-new)
-  - [\[1.13.0\] - 2024-08-27](#1130---2024-08-27)
+  - [\[1.14.0\] - 2024-08-27](#1140---2024-08-27)
     - [Changed](#changed)
   - [\[1.12.0\] - 2024-02-27](#1120---2024-02-27)
     - [Changed](#changed-1)
@@ -54,7 +54,7 @@ There are different kinds of installation. You may choose the one best suiting y
 
 **Installation**
 
-1.  Download Installation from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c)
+1.  Download Installation from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBz4rFJjDtsCe8CdxmaQ9ing?e=gcJz3c)
 1.  *(Optional, when offline*) Download and install the most recent [.NET 8.0 Runtimes](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
     1. ASP.NET Core Runtime x64 Installer
     2. .NET Runtime x64 Installer
@@ -153,7 +153,7 @@ The installation also creates a new Windows Event Log source `BotConnector2Teams
 
 **Installation and Configuration**
 
-1. Download the **bot-connector-to-teams** Docker image from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c) and register it with your image repository.
+1. Download the **bot-connector-to-teams** Docker image from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBz4rFJjDtsCe8CdxmaQ9ing?e=gcJz3c) and register it with your image repository.
 
 1. Download the Docker Compose YAML files from [BotConnector2Teams Docker Compose Download](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/Docker%20Compose).
 
@@ -179,7 +179,7 @@ For example in Docker Desktop \
 
 **Installation and Configuration**
 
-1. Download the **bot-connector-to-teams** Docker image from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c) and register it with your image repository.
+1. Download the **bot-connector-to-teams** Docker image from [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBz4rFJjDtsCe8CdxmaQ9ing?e=gcJz3c) and register it with your image repository.
 
 1. Download the HELM Chart files from [BotConnector2Teams HELM Chart Download](https://github.com/freedom-manufaktur/BotConnector2Teams/tree/main/HELM%20Chart).
 
@@ -401,7 +401,7 @@ As a Teams user of your organization.
 # What's new?
 This section lists **important** changes to the documentation, *Teams App Template* and Docker files.
 Please read this list when upgrading an existing installation.
-> The full app changelog can be found in the [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBUolSUQgcsdCU1MUkag0aew?e=VeXy5c)
+> The full app changelog can be found in the [BotConnector2Teams Download](https://freedommanufaktur.sharepoint.com/:f:/g/EiwKhRezGW1MmdO8NRaPJ4QBz4rFJjDtsCe8CdxmaQ9ing?e=gcJz3c)
 
 ## [1.14.0] - 2024-08-27
 ### Changed
